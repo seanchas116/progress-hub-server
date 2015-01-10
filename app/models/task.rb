@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer          not null, primary key
+#  project_id  :integer
+#  title       :string
+#  url         :string
+#  stage       :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_tasks_on_project_id  (project_id)
+#  index_tasks_on_stage       (stage)
+#
+
 class Task < ActiveRecord::Base
   STAGES = %i(todo doing done)
   extend Enumerize
