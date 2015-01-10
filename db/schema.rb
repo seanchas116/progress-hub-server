@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20150110133651) do
 
   create_table "project_stars", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "project_stars", ["user_id"], name: "index_project_stars_on_user_id"
 
   create_table "projects", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
+    t.integer  "user_id",     null: false
+    t.string   "title",       null: false
     t.text     "description"
     t.string   "url"
     t.datetime "created_at",  null: false
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id"
-    t.integer  "followee_id"
+    t.integer  "follower_id", null: false
+    t.integer  "followee_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "status_stars", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "status_id"
+    t.integer  "user_id",    null: false
+    t.integer  "status_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "status_stars", ["user_id"], name: "index_status_stars_on_user_id"
 
   create_table "statuses", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "type"
+    t.integer  "user_id",           null: false
+    t.string   "type",              null: false
     t.integer  "project_id"
     t.integer  "task_id"
     t.string   "task_stage_before"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "statuses", ["user_id"], name: "index_statuses_on_user_id"
 
   create_table "task_stars", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
+    t.integer  "user_id",    null: false
+    t.integer  "task_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,10 +84,10 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "task_stars", ["user_id"], name: "index_task_stars_on_user_id"
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "project_id"
-    t.string   "title"
+    t.integer  "project_id",  null: false
+    t.string   "title",       null: false
     t.string   "url"
-    t.string   "stage"
+    t.string   "stage",       null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "tasks", ["stage"], name: "index_tasks_on_stage"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",       null: false
+    t.string   "email",      null: false
     t.string   "twitter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

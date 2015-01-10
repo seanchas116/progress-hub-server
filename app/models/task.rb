@@ -3,10 +3,10 @@
 # Table name: tasks
 #
 #  id          :integer          not null, primary key
-#  project_id  :integer
-#  title       :string
+#  project_id  :integer          not null
+#  title       :string           not null
 #  url         :string
-#  stage       :string
+#  stage       :string           not null
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -25,6 +25,8 @@ class Task < ActiveRecord::Base
   has_many :task_stars, dependent: :destroy
 
   enumerize :stage, in: STAGES
+
+  validates :url, allow_blank: true, format: URI.regexp(%w(http https))
 
   after_create do
     TaskAdditionStatus.create!(user: project.user, task: self)

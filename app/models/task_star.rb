@@ -3,8 +3,8 @@
 # Table name: task_stars
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  task_id    :integer
+#  user_id    :integer          not null
+#  task_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

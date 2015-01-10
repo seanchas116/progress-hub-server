@@ -3,8 +3,8 @@
 # Table name: statuses
 #
 #  id                :integer          not null, primary key
-#  user_id           :integer
-#  type              :string
+#  user_id           :integer          not null
+#  type              :string           not null
 #  project_id        :integer
 #  task_id           :integer
 #  task_stage_before :string
@@ -21,4 +21,6 @@
 
 class ProjectAdditionStatus < Status
   belongs_to :project
+
+  validates :project, presence: true
 end

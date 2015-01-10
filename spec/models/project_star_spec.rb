@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ProjectStar, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project) }
+  let(:owner) { FactoryGirl.create(:user2) }
+  let(:project) { FactoryGirl.create(:project, user: owner) }
   let(:project_star) { ProjectStar.create(user: user, project: project) }
 
   it { expect(project_star.user).to eq(user) }

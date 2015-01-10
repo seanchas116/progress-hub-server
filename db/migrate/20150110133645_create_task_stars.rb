@@ -1,8 +1,8 @@
 class CreateTaskStars < ActiveRecord::Migration
   def change
     create_table :task_stars do |t|
-      t.integer :user_id
-      t.integer :task_id
+      t.integer :user_id, null: false
+      t.integer :task_id, null: false
 
       t.timestamps null: false
 

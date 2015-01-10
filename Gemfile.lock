@@ -52,6 +52,8 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
+    email_validator (1.5.0)
+      activemodel
     enumerize (0.9.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -165,6 +167,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   byebug
+  email_validator
   enumerize
   factory_girl_rails
   pry-byebug

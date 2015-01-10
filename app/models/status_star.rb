@@ -3,8 +3,8 @@
 # Table name: status_stars
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  status_id  :integer
+#  user_id    :integer          not null
+#  status_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

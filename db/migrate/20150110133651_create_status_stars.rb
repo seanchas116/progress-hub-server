@@ -1,8 +1,8 @@
 class CreateStatusStars < ActiveRecord::Migration
   def change
     create_table :status_stars do |t|
-      t.integer :user_id
-      t.integer :status_id
+      t.integer :user_id, null: false
+      t.integer :status_id, null: false
 
       t.timestamps null: false
 

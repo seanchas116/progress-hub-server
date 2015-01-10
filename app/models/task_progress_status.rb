@@ -3,8 +3,8 @@
 # Table name: statuses
 #
 #  id                :integer          not null, primary key
-#  user_id           :integer
-#  type              :string
+#  user_id           :integer          not null
+#  type              :string           not null
 #  project_id        :integer
 #  task_id           :integer
 #  task_stage_before :string
@@ -25,4 +25,8 @@ class TaskProgressStatus < Status
   belongs_to :task
   enumerize :task_stage_before, in: Task::STAGES
   enumerize :task_stage_after, in: Task::STAGES
+
+  validates :task, presence: true
+  validates :task_stage_before, presence: true
+  validates :task_stage_after, presence: true
 end

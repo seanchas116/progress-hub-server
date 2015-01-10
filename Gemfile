@@ -51,5 +51,5 @@ group :development, :test do
 end
 
 gem 'annotate'
-
+gem 'email_validator'
 gem 'enumerize'

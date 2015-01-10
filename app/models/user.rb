@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  email      :string
+#  name       :string           not null
+#  email      :string           not null
 #  twitter_id :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -27,4 +27,6 @@ class User < ActiveRecord::Base
   has_many :project_stars, dependent: :destroy
   has_many :status_stars, dependent: :destroy
   has_many :task_stars, dependent: :destroy
+
+  validates :email, email: true
 end
