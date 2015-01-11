@@ -53,3 +53,4 @@ end
 gem 'annotate'
 gem 'email_validator'
 gem 'enumerize'
+gem 'foreigner'

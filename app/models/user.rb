@@ -5,14 +5,12 @@
 #  id         :integer          not null, primary key
 #  name       :string           not null
 #  email      :string           not null
-#  twitter_id :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_users_on_email       (email)
-#  index_users_on_twitter_id  (twitter_id)
+#  index_users_on_email  (email)
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +25,8 @@ class User < ActiveRecord::Base
   has_many :project_stars, dependent: :destroy
   has_many :status_stars, dependent: :destroy
   has_many :task_stars, dependent: :destroy
+
+  has_one :twitter_integration, dependent: :destroy
 
   validates :email, email: true
 end

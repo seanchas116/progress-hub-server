@@ -5,5 +5,4 @@ RSpec.describe User, :type => :model do
 
   it { expect(user).to respond_to(:name) }
   it { expect(user).to respond_to(:email) }
-  it { expect(user).to respond_to(:twitter_id) }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110133651) do
+ActiveRecord::Schema.define(version: 20150111162953) do
 
   create_table "project_stars", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -96,15 +96,25 @@ ActiveRecord::Schema.define(version: 20150110133651) do
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
   add_index "tasks", ["stage"], name: "index_tasks_on_stage"
 
+  create_table "twitter_integrations", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.string   "uid",           null: false
+    t.string   "access_token",  null: false
+    t.string   "access_secret", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "twitter_integrations", ["uid"], name: "index_twitter_integrations_on_uid"
+  add_index "twitter_integrations", ["user_id"], name: "index_twitter_integrations_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "email",      null: false
-    t.string   "twitter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["twitter_id"], name: "index_users_on_twitter_id"
 
 end
