@@ -10,4 +10,12 @@ RSpec.describe Project, :type => :model do
   it { expect(project).to respond_to(:title) }
   it { expect(project).to respond_to(:url) }
   it { expect(project).to respond_to(:description) }
+
+  context 'on delete' do
+    before do
+      user.destroy
+    end
+
+    it { expect(Project.count).to eq(0) }
+  end
 end

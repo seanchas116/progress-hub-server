@@ -17,8 +17,8 @@
 
 class Project < ActiveRecord::Base
   belongs_to :user
-  has_many :tasks, dependent: :destroy
-  has_many :project_stars, dependent: :destroy
+  has_many :tasks
+  has_many :project_stars
 
   validates :url, allow_blank: true, format: URI.regexp(%w(http https))
 

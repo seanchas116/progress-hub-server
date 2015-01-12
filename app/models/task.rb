@@ -22,7 +22,7 @@ class Task < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :project
-  has_many :task_stars, dependent: :destroy
+  has_many :task_stars
 
   enumerize :stage, in: STAGES
 
